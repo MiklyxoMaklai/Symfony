@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="shell">
+        <div class="gallery">
+            <div class="gallery-t">
+
+                <div class="gallery-holder">
+
+                    <div class="gallery-content">
+                        <ul>
+                            <li><a href="#"><img src="web/css/images/gallery-image1.jpg" alt="" /></a>
+                                <div class="image-hover">
+                                    <h5>Lorem ipsum sit amet dolor.</h5>
+                                    <h6>Category Name</h6>
+                                    <a href="#" class="preview">Preview image</a>
+                                </div>
+                            </li>
+                            <li><a href="#"><img src="{{ asset('css/images/gallery-image1.jpg') }}" alt="" /></a>
+                                <div class="image-hover">
+                                    <h5>Lorem ipsum sit amet dolor.</h5>
+                                    <h6>Category Name</h6>
+                                    <a href="#" class="preview">Preview image</a>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="gallery-b">&nbsp;</div>
+    </div>
+{% endblock%}

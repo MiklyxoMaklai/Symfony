@@ -1,0 +1,4 @@
+services:
+#    discount.example:
+#        class: DiscountBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
