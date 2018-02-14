@@ -1,0 +1,8 @@
+discount:
+    resource: "@DiscountBundle/Controller/"
+    type:     annotation
+    prefix:   /dis
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
