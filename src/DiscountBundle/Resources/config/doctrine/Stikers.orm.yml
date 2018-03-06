@@ -1,0 +1,72 @@
+DiscountBundle\Entity\Stikers:
+    type: entity
+    table: stikers
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        stikerCategory:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: stiker_category
+        stikerName:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: true
+            column: stiker_name
+        stikerDesc:
+            type: string
+            nullable: false
+            length: 3000
+            options:
+                fixed: false
+            column: stiker_desc
+        stikerKeywords:
+            type: string
+            nullable: false
+            length: 2000
+            options:
+                fixed: false
+            column: stiker_keywords
+        stikerImgname:
+            type: string
+            nullable: false
+            length: 126
+            options:
+                fixed: true
+            column: stiker_imgname
+        stikerSize:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: true
+            column: stiker_size
+        stikerPrice:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+            column: stiker_price
+        linkAlias:
+            type: string
+            nullable: false
+            length: 250
+            options:
+                fixed: true
+            column: link_alias
+        published:
+            type: boolean
+            nullable: false
+    lifecycleCallbacks: {  }
