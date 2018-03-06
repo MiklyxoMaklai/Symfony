@@ -20,7 +20,7 @@ class DefaultController extends Controller
 
 
 
-
+		//;d,fh;fdlfd;l;lrkt;eltkwepogpoteh
         return $this->render('DiscountBundle:Default:index.html.twig');
     }
 }
