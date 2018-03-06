@@ -27,7 +27,7 @@ class DefaultController extends Controller
             ->getRepository('DiscountBundle:Stikers')
             ->find(13);
 
-
         return $this->render('DiscountBundle:Default:index.html.twig', ['prod' => $product]);
+
     }
 }
