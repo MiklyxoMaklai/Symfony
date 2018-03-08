@@ -1,0 +1,23 @@
+DiscountBundle\Entity\PopularShopGroup:
+    type: entity
+    table: feature_groups_main_page
+    repositoryClass: DiscountBundle\Repository\PopularShopGroupRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        catId:
+            type: integer
+            column: cat_id
+        shopId:
+            type: text
+            column: shop_id
+        groupId:
+            type: integer
+            column: group_id
+        sort:
+            type: integer
+    lifecycleCallbacks: {  }
