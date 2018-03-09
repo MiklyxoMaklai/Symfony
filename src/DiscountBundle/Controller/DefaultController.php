@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Doctrine\ORM\OptimisticLockException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -81,7 +82,7 @@ class DefaultController extends Controller
             $popularShopGroup = new PopularShopGroup();
             $popularShopGroup->setCatId($newCategoryId);
             $popularShopGroup->setShopId($newShopIds);
-            $popularShopGroup->setSort('0');
+            $popularShopGroup->setSort('-1');
             $popularShopGroup->setGroupId($groupId);
 
             $em->persist($popularShopGroup);
@@ -107,23 +108,48 @@ class DefaultController extends Controller
 
         $categoryIds = $request->get('catId');
         $shopIds = $request->get('shopId');
-        $sort = $request->get('sort');
+        $sort = array_values($request->get('sort'));
 
 
         if ($categoryIds && $shopIds) {
             foreach ($sort as $key => $editCatId) {
 
                 $editCat = $popularShopRepository->find($editCatId);
-                $editCat->setCatId($categoryIds[$key-1]);
-                $editCat->setShopId($shopIds[$key-1]);
-                $editCat->setSort($key-1);
+                $editCat->setCatId($categoryIds[$key]);
+                $editCat->setShopId($shopIds[$key]);
+                $editCat->setSort($key);
                 $em->persist($editCat);
                 $em->flush($editCat);
-            }
+            }/*
+            var_dump($categoryIds);
+            var_dump($shopIds);
+            var_dump(array_values($sort));
+            die();*/
 
 
         }
 
         return $this->redirectToRoute('popular_shop_groups_index', ['errors' => 0], 302);
+    }
+
+    /**
+     * @Route("/shop/delete", name="popular_shop_groups_delete")
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function deleteAJAXpopularShopAction(Request $request)
+    {
+        $popularGroupId = $request->get('popularGroupId');
+        $em = $this->getDoctrine()->getManager();
+        $popularShopRepository = $em->getRepository(PopularShopGroup::class);
+
+        $delCat = $popularShopRepository->find($popularGroupId);
+        $em->remove($delCat);
+        $em->flush($delCat);
+
+        return new JsonResponse(['success' => [
+            'code' => $popularGroupId.'abra kadabra'
+        ]]);
     }
 }
