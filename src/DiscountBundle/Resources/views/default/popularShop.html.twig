@@ -14,17 +14,14 @@
         }
     </style>
 
-    <div class="shell">
-        <div class="gallery">
-
 
 
             {% if errors|length > 0 %}
-                <ul>
+                <div>
                     {% for error in errors %}
-                        <li style="color: red">{{ error }}</li>
+                        <div style="color: red">{{ error }}</div>
                     {% endfor %}
-                </ul>
+                </div>
             {% endif %}
 
 
@@ -105,41 +102,46 @@
 
 
 
-
-
-
-        </div>
-    </div>
-
-
-
-
 {% endblock%}
 
 {% block javascripts %}
     <script>
         var val1, val2, val3, val4, val5, val6, val7, val8;
+
+       // $('#shop_id_1').keyup(function() {
+            //console.log( $('#shop_id_1').val() );
+            //console.log( $('#shop_id_1').attr('value') );
+            /*$( "li" ).each(function() {
+                $( this ).toggleClass( "example" );
+            });*/
+        //});
+
+        /*$.each(krbk, function(key, value){
+            $("#korobka" + key).text("").append("rob" + key + ".jpg" ).button().removeClass("ui-button-text-only");
+        });*/
+
+
         function upPosition(position) {
             $('#block_' + position).hide(700);
             $('#block_' + (position - 1)).hide(700, function() {
-                val1 = $('#cat_id_' + position).attr('value');
-                val3 = $('#shop_id_' + position).attr('value');
-                val5 = $('#sort_' + position).attr('value');
+                val1 = $('#cat_id_' + position).val();
+                val3 = $('#shop_id_' + position).val();
+                val5 = $('#sort_' + position).val();
                 val7 = $('#del_' + position).attr('onclick');
 
-                val2 = $('#cat_id_' + (position - 1)).attr('value');
-                val4 = $('#shop_id_' + (position - 1)).attr('value');
-                val6 = $('#sort_' + (position - 1)).attr('value');
+                val2 = $('#cat_id_' + (position - 1)).val();
+                val4 = $('#shop_id_' + (position - 1)).val();
+                val6 = $('#sort_' + (position - 1)).val();
                 val8 = $('#del_' + (position - 1)).attr('onclick');
 
-                $('#cat_id_' + position).attr('value', val2);
-                $('#shop_id_' + position).attr('value', val4);
-                $('#sort_' + position).attr('value', val6);
+                $('#cat_id_' + position).val(val2);
+                $('#shop_id_' + position).val(val4);
+                $('#sort_' + position).val(val6);
                 $('#del_' + position).attr('onclick', val8);
 
-                $('#cat_id_' + (position - 1)).attr('value', val1);
-                $('#shop_id_' + (position - 1)).attr('value', val3);
-                $('#sort_' + (position - 1)).attr('value', val5);
+                $('#cat_id_' + (position - 1)).val(val1);
+                $('#shop_id_' + (position - 1)).val(val3);
+                $('#sort_' + (position - 1)).val(val5);
                 $('#del_' + (position - 1)).attr('onclick', val7);
 
                 $('#block_' + position).show(700);
@@ -151,24 +153,24 @@
         function downPosition(position) {
             $('#block_' + position).hide(700);
             $('#block_' + (position + 1)).hide(700, function() {
-                val1 = $('#cat_id_' + position).attr('value');
-                val3 = $('#shop_id_' + position).attr('value');
-                val5 = $('#sort_' + position).attr('value');
+                val1 = $('#cat_id_' + position).val();
+                val3 = $('#shop_id_' + position).val();
+                val5 = $('#sort_' + position).val();
                 val7 = $('#del_' + position).attr('onclick');
 
-                val2 = $('#cat_id_' + (position + 1)).attr('value');
-                val4 = $('#shop_id_' + (position + 1)).attr('value');
-                val6 = $('#sort_' + (position + 1)).attr('value');
+                val2 = $('#cat_id_' + (position + 1)).val();
+                val4 = $('#shop_id_' + (position + 1)).val();
+                val6 = $('#sort_' + (position + 1)).val();
                 val8 = $('#del_' + (position + 1)).attr('onclick');
 
-                $('#cat_id_' + position).attr('value', val2);
-                $('#shop_id_' + position).attr('value', val4);
-                $('#sort_' + position).attr('value', val6);
+                $('#cat_id_' + position).val(val2);
+                $('#shop_id_' + position).val(val4);
+                $('#sort_' + position).val(val6);
                 $('#del_' + position).attr('onclick', val8);
 
-                $('#cat_id_' + (position + 1)).attr('value', val1);
-                $('#shop_id_' + (position + 1)).attr('value', val3);
-                $('#sort_' + (position + 1)).attr('value', val5);
+                $('#cat_id_' + (position + 1)).val(val1);
+                $('#shop_id_' + (position + 1)).val(val3);
+                $('#sort_' + (position + 1)).val(val5);
                 $('#del_' + (position + 1)).attr('onclick', val7);
 
                 $('#block_' + position).show(700);

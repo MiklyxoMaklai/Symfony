@@ -15,7 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="discount")
      *
      * @return Response
      */
@@ -151,5 +151,15 @@ class DefaultController extends Controller
         return new JsonResponse(['success' => [
             'code' => $popularGroupId.'abra kadabra'
         ]]);
+    }
+
+    /**
+     * @Route ("/vuejs", name="vue_js_index")
+     *
+     * @return Response
+     */
+    public function vueJSindexAction()
+    {
+        return $this->render('DiscountBundle:default:vueJS.html.twig');
     }
 }
