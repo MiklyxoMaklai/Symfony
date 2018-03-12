@@ -160,6 +160,22 @@ class DefaultController extends Controller
      */
     public function vueJSindexAction()
     {
-        return $this->render('DiscountBundle:default:vueJS.html.twig');
+		$tests[1] = ['id' => '1', 'name' => 'name1'];
+		$tests[2] = ['id' => '2', 'name' => 'name2'];
+		$tests[3] = ['id' => '3', 'name' => 'name3'];
+		$tests[4] = ['id' => '4', 'name' => 'name4'];
+		$tests[5] = ['id' => '5', 'name' => 'name5'];
+		
+		$datas[1][0] = ['value' => 'val1'];
+		$datas[1][1] = ['value' => 'val11'];
+		$datas[2][0] = ['value' => 'val2'];
+		$datas[3][0] = ['value' => 'val3'];
+		$datas[4][0] = ['value' => 'val4'];
+		$datas[5][0] = ['value' => 'val5'];
+		
+        return $this->render('DiscountBundle:default:vueJS.html.twig', [
+			'tests' => $tests,
+			'datas' => $datas
+        ]);
     }
 }
